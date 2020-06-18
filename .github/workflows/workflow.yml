@@ -1,0 +1,70 @@
+name: Continuous Delivery
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-apps:
+    name: 'Building Apps'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app:
+          - host-app
+          - products-app
+          - shopping-cart-app
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+        working-directory: ${{ matrix.app }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.app }}
+          path: ${{ matrix.app }}/dist
+  deploy-apps:
+    name: 'Deploying Apps'
+    needs: [build-apps]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install --ignore-scripts
+      - name: 'Downloading host-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: host-app
+          path: dist/host-app
+      - name: 'Downloading products-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: products-app
+          path: dist/products-app
+      - name: 'Downloading shopping-cart-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: shopping-cart-app
+          path: dist/shopping-cart-app
+      - name: 'Deploying host-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/host-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started.now.sh
+      - name: 'Deploying products-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/products-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started-products-app.now.sh
+      - name: 'Deploying shopping-cart-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/shopping-cart-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started-shopping-cart-app.now.sh

@@ -1,0 +1,10 @@
+{
+  "name": "Shopping Cart App",
+  "capabilities": [{
+    "type": "activator",
+    "private": false,
+    "properties": {
+      "path": "activator.html"
+    }
+  }]
+}

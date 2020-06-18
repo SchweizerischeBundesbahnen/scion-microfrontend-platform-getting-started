@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background: #c5f1ff;
+  padding: 1em;
+  font-family: sans-serif;
+
+  > ul.cart {
+    flex: auto;
+    list-style: none;
+    padding: 0;
+
+    > li {
+      padding: 1em;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  > button.clear {
+    flex: none;
+  }
+}
