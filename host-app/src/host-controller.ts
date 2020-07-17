@@ -1,4 +1,3 @@
-import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 import { Beans, MessageClient, MicroApplicationConfig, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
 
 class HostController {
