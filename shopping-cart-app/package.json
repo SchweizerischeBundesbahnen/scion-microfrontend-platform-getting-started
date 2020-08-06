@@ -2,7 +2,8 @@
   "name": "shopping-cart-app",
   "scripts": {
     "start": "cpy src/*.json dist && parcel src/*.html --port 4202 --no-cache",
-    "build": "cpy src/*.json dist && parcel build src/*.html --no-cache"
+    "build": "cpy src/*.json dist && parcel build src/*.html --no-cache",
+    "prebuild": "tsc --noEmit"
   },
   "dependencies": {
     "@scion/microfrontend-platform": "^1.0.0 || ^1.0.0-rc.0 || ^1.0.0-beta.0",
