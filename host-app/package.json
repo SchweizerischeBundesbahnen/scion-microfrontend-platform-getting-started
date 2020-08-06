@@ -8,7 +8,6 @@
   "dependencies": {
     "@scion/microfrontend-platform": "^1.0.0 || ^1.0.0-rc.0 || ^1.0.0-beta.0",
     "@scion/toolkit": "^9.0.0 || ^9.0.0-rc.0 || ^9.0.0-beta.3",
-    "@webcomponents/webcomponentsjs": "^2.4.3",
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
