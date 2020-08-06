@@ -18,3 +18,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+
+# Ignore lockfiles to always work with the latest packages
+**/package-lock.json
