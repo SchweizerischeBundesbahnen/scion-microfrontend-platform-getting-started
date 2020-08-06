@@ -49,7 +49,7 @@ export class ShoppingCartService {
     localChange$.next();
   }
 
-  private static getProducts(): Observable<Product>[] {
+  private static getProducts(): Product[] {
     const products = sessionStorage.getItem(SHOPPING_CART_STORAGE_KEY);
     return products ? JSON.parse(products) : [];
   }
