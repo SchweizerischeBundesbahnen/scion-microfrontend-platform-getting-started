@@ -1,8 +1,8 @@
-import { Beans, MessageClient, MicroApplicationConfig, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
+import { ApplicationConfig, Beans, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
 
 class HostController {
 
-  private platformConfig: MicroApplicationConfig[] = [
+  private platformConfig: ApplicationConfig[] = [
     {symbolicName: 'host-app', manifestUrl: '/manifest.json'},
     {symbolicName: 'products-app', manifestUrl: `${process.env.PRODUCTS_APP_URL}/manifest.json`},
     {symbolicName: 'shopping-cart-app', manifestUrl: `${process.env.SHOPPING_CART_APP_URL}/manifest.json`},
