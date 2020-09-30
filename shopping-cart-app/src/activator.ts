@@ -11,7 +11,7 @@ class Activator {
 
     // Listener to add a product to the shopping cart
     Beans.get(MessageClient)
-      .onMessage$<Product>('shopping-cart/add-product')
+      .observe$<Product>('shopping-cart/add-product')
       .subscribe(msg => {
         ShoppingCartService.addProduct(msg.body);
         this.setShoppingCartPanelVisibility(true);
@@ -19,7 +19,7 @@ class Activator {
 
     // Listener to open or close the shopping cart panel
     Beans.get(MessageClient)
-      .onMessage$<Product>('shopping-cart/toggle-side-panel')
+      .observe$<Product>('shopping-cart/toggle-side-panel')
       .subscribe(() => this.setShoppingCartPanelVisibility(!this.panelVisible));
   }
 
