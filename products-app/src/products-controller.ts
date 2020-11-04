@@ -1,4 +1,5 @@
-import { Beans, MessageClient, MicrofrontendPlatform } from '@scion/microfrontend-platform';
+import { MessageClient, MicrofrontendPlatform } from '@scion/microfrontend-platform';
+import { Beans } from '@scion/toolkit/bean-manager';
 
 class ProductsController {
 

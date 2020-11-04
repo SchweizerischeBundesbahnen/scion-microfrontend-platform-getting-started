@@ -1,5 +1,6 @@
-import { Beans, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
+import { MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
 import { Product, ShoppingCartService } from './shopping-cart-service';
+import { Beans } from '@scion/toolkit/bean-manager';
 
 class Activator {
 
