@@ -1,4 +1,5 @@
-import { ApplicationConfig, Beans, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
+import { ApplicationConfig, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
+import { Beans } from '@scion/toolkit/bean-manager';
 
 class HostController {
 
