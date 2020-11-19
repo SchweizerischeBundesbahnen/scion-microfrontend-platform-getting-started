@@ -1,7 +1,7 @@
 {
   "name": "products-app",
   "scripts": {
-    "start": "cpy src/*.json dist && parcel src/*.html --port 4201 --no-cache",
+    "start": "cpy src/*.json dist && cpy src/pics/*.jpg dist && parcel src/*.html --port 4201 --no-cache",
     "build": "cpy src/*.json dist && parcel build src/*.html --no-cache",
     "prebuild": "tsc --noEmit"
   },

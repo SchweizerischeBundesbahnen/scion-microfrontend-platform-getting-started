@@ -13,8 +13,12 @@ body {
 
   > nav {
     grid-column: 1/-1;
-    display: flex;
-    justify-content: flex-end;
+
+    > button {
+      font-size: 1.5em;
+      margin-left: .25em;
+      padding: 0 1em;
+    }
   }
 
   > sci-router-outlet[name="SHOPPING-CART"].sci-empty {

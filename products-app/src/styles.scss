@@ -1,8 +1,16 @@
-body {
+html {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+html.products > body {
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
   padding: 1em;
+
+  > h1 {
+    flex: none;
+  }
 
   > ul.products {
     flex: auto;
@@ -15,5 +23,32 @@ body {
       display: flex;
       justify-content: space-between;
     }
+  }
+}
+
+html.product-detail > body {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-auto-rows: max-content;
+  gap: .25em 1em;
+
+  > header {
+    font-weight: bold;
+    font-size: 1.2em;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  > img {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+
+  > span.description {
+    grid-column: 2/3;
+    grid-row: 2/3;
   }
 }

@@ -1,27 +1,20 @@
 import { MessageClient, MicrofrontendPlatform } from '@scion/microfrontend-platform';
 import { Beans } from '@scion/toolkit/bean-manager';
+import { Product, products } from './product-store';
 
-class ProductsController {
-
-  private products: Product[] = [
-    {id: 1, name: 'Product 1'},
-    {id: 2, name: 'Product 2'},
-    {id: 3, name: 'Product 3'},
-    {id: 4, name: 'Product 4'},
-    {id: 5, name: 'Product 5'},
-  ];
+/**
+ * Microfrontend to list available products.
+ */
+class ProductListController {
 
   public async init(): Promise<void> {
     // Connect to the platform host
-    await MicrofrontendPlatform.connectToHost({symbolicName: 'products-app'});
+    if (window !== window.parent) {
+      await MicrofrontendPlatform.connectToHost({symbolicName: 'products-app'});
+    }
 
     // Render the products
-    this.products.forEach(product => this.renderProduct(product));
-  }
-
-  private onAddToCart(product: Product): void {
-    // Notify the shopping cart application when the user adds a product to the shopping cart
-    Beans.get(MessageClient).publish('shopping-cart/add-product', product);
+    products.forEach(product => this.renderProduct(product));
   }
 
   private renderProduct(product: Product): void {
@@ -37,11 +30,12 @@ class ProductsController {
     li.appendChild(text);
     li.appendChild(button);
   }
+
+  private onAddToCart(product: Product): void {
+    // Notify the shopping cart application when the user adds a product to the shopping cart
+    Beans.get(MessageClient).publish('shopping-cart/add', {id: product.id, name: product.name});
+  }
 }
 
-new ProductsController().init();
+new ProductListController().init();
 
-interface Product {
-  id: number;
-  name: string;
-}

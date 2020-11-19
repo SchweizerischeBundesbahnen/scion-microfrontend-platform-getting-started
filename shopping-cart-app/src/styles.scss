@@ -13,10 +13,8 @@ body {
     > li {
       padding: 1em;
       border-bottom: 1px solid black;
+      display: flex;
+      justify-content: space-between;
     }
-  }
-
-  > button.clear {
-    flex: none;
   }
 }
