@@ -7,6 +7,7 @@ class HostController {
     {symbolicName: 'host-app', manifestUrl: '/manifest.json'},
     {symbolicName: 'products-app', manifestUrl: `${process.env.PRODUCTS_APP_URL}/manifest.json`},
     {symbolicName: 'shopping-cart-app', manifestUrl: `${process.env.SHOPPING_CART_APP_URL}/manifest.json`},
+    {symbolicName: 'devtools', manifestUrl: `${process.env.DEV_TOOLS_URL}/assets/manifest.json`, intentionCheckDisabled: true, scopeCheckDisabled: true},
   ];
 
   constructor() {
@@ -19,6 +20,9 @@ class HostController {
 
     // Display the products microfrontend in the primary router outlet
     Beans.get(OutletRouter).navigate(`${process.env.PRODUCTS_APP_URL}/products.html`);
+
+    // Display the devtools microfrontend in the devtools router outlet
+    Beans.get(OutletRouter).navigate(`${process.env.DEV_TOOLS_URL}`, {outlet: 'DEV-TOOLS'});
   }
 
   private onToggleShoppingCart(): void {
