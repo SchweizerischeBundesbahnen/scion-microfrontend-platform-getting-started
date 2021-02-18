@@ -53,7 +53,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started.now.sh
+          aliases: scion-microfrontend-platform-getting-started.vercel.app
       - name: 'Deploying products-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
@@ -61,7 +61,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started-products-app.now.sh
+          aliases: scion-microfrontend-platform-getting-started-products-app.vercel.app
       - name: 'Deploying shopping-cart-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
@@ -69,4 +69,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started-shopping-cart-app.now.sh
+          aliases: scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app
