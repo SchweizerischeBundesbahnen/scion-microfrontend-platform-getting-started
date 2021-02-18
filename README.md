@@ -46,11 +46,11 @@ npm run start
 Pushing to the master branch triggers our GitHub workflow and deploys the webshop to [Vercel](https://vercel.com/scion/scion-microfrontend-platform-getting-started-app).
 
  - **Host Application (main entry point of the webshop)**\
-   https://scion-microfrontend-platform-getting-started.now.sh
+   https://scion-microfrontend-platform-getting-started.vercel.app
  - **Products Application**\
-   [https://scion-microfrontend-platform-getting-started-products-app.now.sh](https://scion-microfrontend-platform-getting-started-products-app.now.sh/products.html)
+   [https://scion-microfrontend-platform-getting-started-products-app.vercel.app](https://scion-microfrontend-platform-getting-started-products-app.vercel.app/products.html)
  - **Shopping Cart Application**\
-   [https://scion-microfrontend-platform-getting-started-shopping-cart-app.now.sh](https://scion-microfrontend-platform-getting-started-shopping-cart-app.now.sh/shopping-cart.html)
+   [https://scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app](https://scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app/shopping-cart.html)
 
 ***
 
@@ -58,6 +58,6 @@ Pushing to the master branch triggers our GitHub workflow and deploys the websho
 
 [link-microfrontend-platform]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform
 [link-microfrontend-platform:getting-started-guide]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform/blob/master/docs/site/getting-started/getting-started.md
-[link-microfrontend-platform:getting-started-app]: https://scion-microfrontend-platform-getting-started.now.sh
+[link-microfrontend-platform:getting-started-app]: https://scion-microfrontend-platform-getting-started.vercel.app
 [link-github-actions-workflow]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform-getting-started/actions
 [link-github-actions-workflow:status]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform-getting-started/workflows/Continuous%20Delivery/badge.svg?branch=master&event=push
