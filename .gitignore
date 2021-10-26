@@ -1,6 +1,6 @@
 **/dist
 **/node_modules
-**/.cache
+**/.parcel-cache
 
 # IDEs and editors
 /.idea

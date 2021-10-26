@@ -4,15 +4,17 @@
     "start": "cpy src/*.json dist && parcel src/*.html --port 4200 --no-cache --open"
   },
   "dependencies": {
-    "@scion/microfrontend-platform": "^1.0.0 || ^1.0.0-rc.0 || ^1.0.0-beta.0",
-    "@scion/toolkit": "^10.0.0 || ^10.0.0-rc.0 || ^10.0.0-beta.0",
-    "rxjs": "^6.5.5"
+    "@scion/microfrontend-platform": "latest",
+    "@scion/toolkit": "latest",
+    "rxjs": "^6.6.7"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0",
+    "@types/node": "^15.6.1",
     "cpy-cli": "^3.1.1",
-    "parcel": "^1.12.4",
-    "sass": "^1.26.8",
-    "typescript": "^3.9.5"
+    "parcel": "^2.0.0",
+    "sass": "^1.43.3",
+    "typescript": "^4.3.5"
   },
   "browserslist": [
     "last 2 Chrome versions"
