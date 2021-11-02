@@ -1,5 +1,5 @@
-import { MicrofrontendPlatform } from '@scion/microfrontend-platform';
-import { ShoppingCartService } from './shopping-cart-service';
+import {MicrofrontendPlatform} from '@scion/microfrontend-platform';
+import {ShoppingCartService} from './shopping-cart-service';
 
 class ShoppingCartController {
 
@@ -9,7 +9,7 @@ class ShoppingCartController {
 
   public async init(): Promise<void> {
     // Connect to the platform host
-    await MicrofrontendPlatform.connectToHost({symbolicName: 'shopping-cart-app'});
+    await MicrofrontendPlatform.connectToHost('shopping-cart-app');
 
     // Render products added to the shopping cart
     ShoppingCartService.products$.subscribe(products => {

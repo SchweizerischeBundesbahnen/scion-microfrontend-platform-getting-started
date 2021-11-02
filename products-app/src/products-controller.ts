@@ -13,7 +13,7 @@ class ProductsController {
 
   public async init(): Promise<void> {
     // Connect to the platform host
-    await MicrofrontendPlatform.connectToHost({symbolicName: 'products-app'});
+    await MicrofrontendPlatform.connectToHost('products-app');
 
     // Render the products
     this.products.forEach(product => this.renderProduct(product));

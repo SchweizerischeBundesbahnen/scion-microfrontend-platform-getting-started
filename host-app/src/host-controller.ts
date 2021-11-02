@@ -1,14 +1,7 @@
-import { ApplicationConfig, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
+import { MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
 import { Beans } from '@scion/toolkit/bean-manager';
 
 class HostController {
-
-  private platformConfig: ApplicationConfig[] = [
-    {symbolicName: 'host-app', manifestUrl: '/manifest.json'},
-    {symbolicName: 'products-app', manifestUrl: `${process.env.PRODUCTS_APP_URL}/manifest.json`},
-    {symbolicName: 'shopping-cart-app', manifestUrl: `${process.env.SHOPPING_CART_APP_URL}/manifest.json`},
-    {symbolicName: 'devtools', manifestUrl: `${process.env.DEV_TOOLS_URL}/assets/manifest.json`, intentionCheckDisabled: true, scopeCheckDisabled: true},
-  ];
 
   constructor() {
     document.querySelector('button.shopping-cart').addEventListener('click', () => this.onToggleShoppingCart());
@@ -16,7 +9,13 @@ class HostController {
 
   public async init(): Promise<void> {
     // Start the platform
-    await MicrofrontendPlatform.startHost(this.platformConfig, {symbolicName: 'host-app'});
+    await MicrofrontendPlatform.startHost({
+      applications: [
+        {symbolicName: 'products-app', manifestUrl: `${process.env.PRODUCTS_APP_URL}/manifest.json`},
+        {symbolicName: 'shopping-cart-app', manifestUrl: `${process.env.SHOPPING_CART_APP_URL}/manifest.json`},
+        {symbolicName: 'devtools', manifestUrl: `${process.env.DEV_TOOLS_URL}/assets/manifest.json`, intentionCheckDisabled: true, scopeCheckDisabled: true},
+      ],
+    });
 
     // Display the products microfrontend in the primary router outlet
     Beans.get(OutletRouter).navigate(`${process.env.PRODUCTS_APP_URL}/products.html`);
