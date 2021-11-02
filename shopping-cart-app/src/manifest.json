@@ -1,5 +1,5 @@
 {
-  "name": "Shopping Cart App",
+  "name": "Shopping Cart Application",
   "capabilities": [{
     "type": "activator",
     "private": false,

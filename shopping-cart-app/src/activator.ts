@@ -8,7 +8,7 @@ class Activator {
 
   public async init(): Promise<void> {
     // Connect to the platform host
-    await MicrofrontendPlatform.connectToHost({symbolicName: 'shopping-cart-app'});
+    await MicrofrontendPlatform.connectToHost('shopping-cart-app');
 
     // Listener to add a product to the shopping cart
     Beans.get(MessageClient)
