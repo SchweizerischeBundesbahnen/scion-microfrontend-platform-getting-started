@@ -20,7 +20,7 @@ class Activator {
 
     // Listener to open or close the shopping cart panel
     Beans.get(MessageClient)
-      .observe$<Product>('shopping-cart/toggle-side-panel')
+      .observe$<void>('shopping-cart/toggle-side-panel')
       .subscribe(() => this.setShoppingCartPanelVisibility(!this.panelVisible));
   }
 
