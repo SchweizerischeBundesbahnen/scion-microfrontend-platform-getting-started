@@ -2,7 +2,7 @@
   "name": "host-app",
   "scripts": {
     "start": "cpy src/*.json dist && parcel src/*.html --port 4200 --no-cache --open",
-    "build": "cpy src/*.json dist && parcel build src/*.html --no-cache",
+    "build": "cpy src/*.json dist && cpy src/favicon.ico dist && parcel build src/*.html --no-cache",
     "prebuild": "tsc --noEmit"
   },
   "dependencies": {
