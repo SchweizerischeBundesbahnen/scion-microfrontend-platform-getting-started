@@ -1,9 +1,9 @@
 {
-  "name": "products-app",
+  "name": "customers-app",
   "scripts": {
     "start": "run-p parcel:serve \"assets:copy -- --watch\"",
     "build": "run-s parcel:build assets:copy",
-    "parcel:serve": "parcel src/**/*.html --port 4201 --no-cache",
+    "parcel:serve": "parcel src/**/*.html --port 4202 --no-cache",
     "parcel:build": "tsc --noEmit && parcel build src/**/*.html --no-cache",
     "assets:copy": "copy-and-watch src/{manifest.json,favicon.ico} dist/"
   },

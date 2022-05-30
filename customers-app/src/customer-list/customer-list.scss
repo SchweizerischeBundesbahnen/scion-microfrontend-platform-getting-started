@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  position: absolute;
+  inset: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    margin: 0 0 1em 0;
+    font-size: 1.5rem;
+  }
+
+  > section#customers {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5em 5em;
+
+    > a {
+      color: blue;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

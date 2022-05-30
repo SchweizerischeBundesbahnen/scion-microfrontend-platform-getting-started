@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+  position: absolute;
+  inset: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    margin: 0 0 1em 0;
+    font-size: 1.5rem;
+  }
+
+  > section#customer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5em 4em;
+  }
+
+  > sci-router-outlet {
+    margin-top: 3em;
+    flex: auto;
+    border: 1px dashed black;
+    padding: 1em;
+    position: relative;
+
+    &:before {
+      content: attr(name);
+      position: absolute;
+      top: .1em;
+      right: .2em;
+      font-size: smaller;
+      font-family: monospace;
+    }
+  }
+}
