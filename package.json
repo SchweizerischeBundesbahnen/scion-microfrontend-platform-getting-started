@@ -1,10 +1,10 @@
 {
-  "name": "webshop-root",
+  "name": "scion-microfrontend-platform-getting-started",
   "scripts": {
     "start": "run-p *:start",
     "host-app:start": "npm start --prefix host-app",
     "products-app:start": "npm start --prefix products-app",
-    "shopping-cart-app:start": "npm start --prefix shopping-cart-app",
+    "customers-app:start": "npm start --prefix customers-app",
     "postinstall": "npm-recursive-install --skip-root"
   },
   "devDependencies": {

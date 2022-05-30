@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "name": "Apples",
+    "price": 2.5
+  },
+  {
+    "id": "2",
+    "name": "Bananas",
+    "price": 3.4
+  },
+  {
+    "id": "3",
+    "name": "Grapes",
+    "price": 4.95
+  },
+  {
+    "id": "4",
+    "name": "Lemons",
+    "price": 2.2
+  },
+  {
+    "id": "5",
+    "name": "Oranges",
+    "price": 3.3
+  },
+  {
+    "id": "6",
+    "name": "Strawberries",
+    "price": 4
+  },
+  {
+    "id": "7",
+    "name": "Blackberries",
+    "price": 2.5
+  },
+  {
+    "id": "8",
+    "name": "Blueberries",
+    "price": 2.7
+  },
+  {
+    "id": "9",
+    "name": "Cranberries",
+    "price": 3.65
+  },
+  {
+    "id": "10",
+    "name": "Avocados",
+    "price": 6.25
+  },
+  {
+    "id": "11",
+    "name": "Cherries",
+    "price": 5.1
+  },
+  {
+    "id": "12",
+    "name": "Guavas",
+    "price": 8.5
+  },
+  {
+    "id": "13",
+    "name": "Mangos",
+    "price": 9.5
+  },
+  {
+    "id": "14",
+    "name": "Lychees",
+    "price": 9.75
+  },
+  {
+    "id": "15",
+    "name": "Papayas",
+    "price": 9.25
+  },
+  {
+    "id": "16",
+    "name": "Passion Fruits",
+    "price": 6
+  },
+  {
+    "id": "17",
+    "name": "Rasperries",
+    "price": 3.45
+  },
+  {
+    "id": "18",
+    "name": "Watermelon",
+    "price": 4.6
+  },
+  {
+    "id": "19",
+    "name": "Grapes",
+    "price": 5.5
+  },
+  {
+    "id": "20",
+    "name": "Peaches",
+    "price": 6.95
+  }
+]
