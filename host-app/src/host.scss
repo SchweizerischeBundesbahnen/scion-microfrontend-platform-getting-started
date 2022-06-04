@@ -1,0 +1,48 @@
+body {
+  position: absolute;
+  inset: 0 0 0 0;
+  margin: .5em;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+
+  > nav {
+    flex: none;
+    display: flex;
+    gap: .5em;
+
+    > button {
+      color: #0a5d93;
+      background-color: #FFFFFF;
+      border: 1px solid #0a5d93;
+      border-radius: .3em;
+      cursor: pointer;
+      padding: .75em 1em;
+      font-weight: bold;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #0a5d93;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  > main {
+    flex: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: .5em;
+
+    > sci-router-outlet {
+      border: 1px dashed black;
+      padding: 1em;
+    }
+
+    > sci-router-outlet[name="bottom"] {
+      grid-column: 1/-1;
+    }
+  }
+}

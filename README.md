@@ -11,26 +11,28 @@ This repository provides minimal application skeletons to easily work through th
 #### This repository has the following two branches:
 
 - **skeleton branch**\
-  This branch is the starting point for developing the webshop in the course of the Getting Started Guide.
+  This branch is the starting point for developing the [sample application][link-microfrontend-platform:getting-started-app] in the course of the Getting Started Guide.
 
 - **master branch**\
-  This branch contains the final [webshop application][link-microfrontend-platform:getting-started-app] as it will be developed in the course of the Getting Started Guide.
+  This branch contains the final [sample application][link-microfrontend-platform:getting-started-app] as it will be developed in the course of the Getting Started Guide.
 
 ***
 
-For detailed instructions on using this repository, please see the [Getting Started Guide][link-microfrontend-platform:getting-started-guide] which gives you a gentle introduction to the essentials of the [SCION Microfrontend Platform][link-microfrontend-platform].
+For detailed instructions on using this repository, please see the [Getting Started Guide][link-microfrontend-platform:getting-started-guide] which gives you an introduction to the essentials of the [SCION Microfrontend Platform][link-microfrontend-platform].
 
 
 ### Applications
 
-The webshop consists of the following three applications.
+The sample application consists of the following three applications.
 
-- **Host Application**\
-  App which the user loads into his browser that provides the main application layout of the webshop.
-- **Products Application**\
-  Micro app that provides the products microfrontend, so that the user can view the products of our webshop.
-- **Shopping Cart Application**\
-  Micro app that provides the shopping cart microfrontend, allowing the user to add products into the shopping cart.
+- **Host App**\
+  Provides the top-level integration container for microfrontends. It is the web app which the user loads into his browser that provides the main application shell, defining areas to embed microfrontends.
+
+- **Products App**\
+  Provides the *ProductList Microfrontend* and *Product Microfrontend*, so that we can view our products.
+
+- **Customers Apps**\
+  Provides the *CustomerList Microfrontend* and *Customer Microfrontend*, so that we can view our customers. The *Customer Microfrontend* further embeds the *ProductList Microfrontend* to show the products purchased by a customer.
 
 ### Serving the webshop locally
 
@@ -43,14 +45,14 @@ npm run start
 
 ### Continuous Delivery
 
-Pushing to the master branch triggers our GitHub workflow and deploys the webshop to [Vercel](https://vercel.com/scion/scion-microfrontend-platform-getting-started-app).
+Pushing to the master branch triggers our GitHub workflow and deploys the sample application to [Vercel](https://vercel.com/scion/scion-microfrontend-platform-getting-started-app).
 
- - **Host Application (main entry point of the webshop)**\
+ - **Host Application (main entry point of the sample application)**\
    https://scion-microfrontend-platform-getting-started.vercel.app
  - **Products Application**\
-   [https://scion-microfrontend-platform-getting-started-products-app.vercel.app](https://scion-microfrontend-platform-getting-started-products-app.vercel.app/products.html)
- - **Shopping Cart Application**\
-   [https://scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app](https://scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app/shopping-cart.html)
+   https://scion-microfrontend-platform-getting-started-products-app.vercel.app
+ - **Customers Application**\
+   https://scion-microfrontend-platform-getting-started-customers-app.vercel.app
 
 ***
 
