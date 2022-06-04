@@ -1,29 +1,23 @@
 {
-  "name": "Products App",
+  "name": "Customers App",
   "capabilities": [
     {
       "type": "microfrontend",
       "qualifier": {
-        "entity": "products"
+        "entity": "customers"
       },
-      "params": [
-        {
-          "name": "ids",
-          "required": false
-        }
-      ],
       "private": false,
       "properties": {
-        "path": "/product-list/product-list.html#?ids=:ids",
+        "path": "/customer-list/customer-list.html",
         "navbar": {
-          "label": "Products"
+          "label": "Customers"
         }
       }
     },
     {
       "type": "microfrontend",
       "qualifier": {
-        "entity": "product"
+        "entity": "customer"
       },
       "params": [
         {
@@ -32,8 +26,16 @@
         }
       ],
       "properties": {
-        "path": "/product/product.html#?id=:id",
+        "path": "/customer/customer.html#?id=:id",
         "outlet": "aside"
+      }
+    }
+  ],
+  "intentions": [
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "products"
       }
     }
   ]

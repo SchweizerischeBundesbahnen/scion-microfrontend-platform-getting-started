@@ -13,10 +13,11 @@ jobs:
         app:
           - host-app
           - products-app
-          - shopping-cart-app
+          - customers-app
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+        working-directory: ${{ matrix.app }}
       - run: npm run build
         env:
           NODE_ENV: production
@@ -42,11 +43,11 @@ jobs:
         with:
           name: products-app
           path: dist/products-app
-      - name: 'Downloading shopping-cart-app'
+      - name: 'Downloading customers-app'
         uses: actions/download-artifact@v2
         with:
-          name: shopping-cart-app
-          path: dist/shopping-cart-app
+          name: customers-app
+          path: dist/customers-app
       - name: 'Deploying host-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
@@ -63,11 +64,11 @@ jobs:
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
           aliases: scion-microfrontend-platform-getting-started-products-app.vercel.app
-      - name: 'Deploying shopping-cart-app to Vercel'
+      - name: 'Deploying customers-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
-          dist-folder: dist/shopping-cart-app
+          dist-folder: dist/customers-app
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started-shopping-cart-app.vercel.app
+          aliases: scion-microfrontend-platform-getting-started-customers-app.vercel.app
