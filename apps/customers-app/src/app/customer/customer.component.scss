@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    flex: none;
+  }
+
+  > section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5em 4em;
+  }
+
+  > sci-router-outlet {
+    margin-top: 3em;
+    flex: auto;
+    border: 1px dashed black;
+    padding: 1em;
+    position: relative;
+
+    &:before {
+      content: attr(name);
+      position: absolute;
+      top: .1em;
+      right: .2em;
+      font-size: smaller;
+      font-family: monospace;
+    }
+  }
+}

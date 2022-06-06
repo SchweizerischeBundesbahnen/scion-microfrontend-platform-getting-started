@@ -1,0 +1,10 @@
+<h1>Customers</h1>
+
+<section>
+  <ng-container *ngFor="let customer of customers">
+    <a (click)="onOpenCustomer(customer.id)">
+      {{customer.firstname}} {{customer.lastname}}
+    </a>
+    {{customer.city}}
+  </ng-container>
+</section>
