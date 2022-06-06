@@ -20,7 +20,21 @@ import {RouterModule} from '@angular/router';
         applications: [
           {symbolicName: 'products-app', manifestUrl: 'http://localhost:4201/assets/manifest.json'},
           {symbolicName: 'customers-app', manifestUrl: 'http://localhost:4202/assets/manifest.json'},
+          {
+            symbolicName: 'devtools',
+            manifestUrl: 'https://scion-microfrontend-platform-devtools.vercel.app/assets/manifest.json',
+            intentionCheckDisabled: true,
+            scopeCheckDisabled: true,
+          },
         ],
+        host: {
+          manifest: {
+            name: 'Host App',
+            intentions: [
+              {type: 'microfrontend', qualifier: {component: 'devtools', vendor: 'scion'}},
+            ],
+          },
+        },
       }),
       multi: true,
     },
