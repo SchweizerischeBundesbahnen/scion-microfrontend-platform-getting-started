@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {ManifestService, MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
 import {RouterModule} from '@angular/router';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import {RouterModule} from '@angular/router';
       provide: APP_INITIALIZER,
       useValue: () => MicrofrontendPlatform.startHost({
         applications: [
-          {symbolicName: 'products-app', manifestUrl: 'http://localhost:4201/assets/manifest.json'},
-          {symbolicName: 'customers-app', manifestUrl: 'http://localhost:4202/assets/manifest.json'},
+          {symbolicName: 'products-app', manifestUrl: environment.PRODUCTS_APP_MANIFEST_URL},
+          {symbolicName: 'customers-app', manifestUrl: environment.CUSTOMERS_APP_MANIFEST_URL},
           {
             symbolicName: 'devtools',
-            manifestUrl: 'https://scion-microfrontend-platform-devtools.vercel.app/assets/manifest.json',
+            manifestUrl: environment.DEV_TOOLS_MANIFEST_URL,
             intentionCheckDisabled: true,
             scopeCheckDisabled: true,
           },

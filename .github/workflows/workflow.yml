@@ -1,0 +1,97 @@
+name: Continuous Delivery
+on:
+  push:
+    branches:
+      - master-angular
+  workflow_dispatch:
+env:
+  NODE_VERSION: 16.14.0
+jobs:
+  install:
+    name: 'Installing NPM modules'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: 'Caching NPM modules if necessary'
+        uses: actions/cache@v2
+        id: node-modules-cache
+        with:
+          path: ./node_modules
+          key: node_modules-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+  build-apps:
+    name: 'Building Apps'
+    needs: install
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app:
+          - name: host-app
+            cmd: npm run host-app:build:vercel
+          - name: products-app
+            cmd: npm run products-app:build:vercel
+          - name: customers-app
+            cmd: npm run customers-app:build:vercel
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: 'Restoring NPM modules from cache'
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: node_modules-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - run: ${{ matrix.app.cmd }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.app.name }}
+          path: dist/${{ matrix.app.name }}
+  deploy-apps:
+    name: 'Deploying Apps'
+    needs: [build-apps]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Downloading host-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: host-app
+          path: dist/host-app
+      - name: 'Downloading products-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: products-app
+          path: dist/products-app
+      - name: 'Downloading customers-app'
+        uses: actions/download-artifact@v2
+        with:
+          name: customers-app
+          path: dist/customers-app
+      - name: 'Deploying host-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/host-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started-angular.vercel.app
+      - name: 'Deploying products-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/products-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started-products-angular.vercel.app
+      - name: 'Deploying customers-app to Vercel'
+        uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
+        with:
+          dist-folder: dist/customers-app
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.VERCEL_ORG_ID }}
+          project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
+          aliases: scion-microfrontend-platform-getting-started-customers-angular.vercel.app

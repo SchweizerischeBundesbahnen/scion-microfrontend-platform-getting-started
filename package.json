@@ -10,7 +10,11 @@
     "build-and-start": "run-p *:build-and-start",
     "host-app:build-and-start": "ng build host-app && cd dist/host-app && http-server --cors --silent --port 4200",
     "products-app:build-and-start": "ng build products-app && cd dist/products-app && http-server --cors --silent --port 4201",
-    "customers-app:build-and-start": "ng build customers-app && cd dist/customers-app && http-server --cors --silent --port 4202"
+    "customers-app:build-and-start": "ng build customers-app && cd dist/customers-app && http-server --cors --silent --port 4202",
+
+    "host-app:build:vercel": "ng build host-app --configuration=production.vercel",
+    "products-app:build:vercel": "ng build products-app --configuration=production",
+    "customers-app:build:vercel": "ng build customers-app --configuration=production"
   },
   "private": true,
   "dependencies": {
