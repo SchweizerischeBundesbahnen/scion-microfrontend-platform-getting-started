@@ -30,6 +30,8 @@ export class ProductListComponent {
   }
 
   public onOpenProduct(id: string): void {
-    this.router.navigate(`/products/${id}`, {outlet: 'aside'});
+    this.router.navigate({entity: 'product'}, {
+      params: new Map().set('id', id),
+    });
   }
 }
