@@ -1,0 +1,38 @@
+{
+  "name": "Products App",
+  "baseUrl": "#",
+  "capabilities": [
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "products"
+      },
+      "params": [
+        {
+          "name": "ids",
+          "required": false
+        }
+      ],
+      "private": false,
+      "properties": {
+        "path": "/products?ids=:ids"
+      }
+    },
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "product"
+      },
+      "params": [
+        {
+          "name": "id",
+          "required": true
+        }
+      ],
+      "properties": {
+        "path": "/products/:id",
+        "outlet": "aside"
+      }
+    }
+  ]
+}
