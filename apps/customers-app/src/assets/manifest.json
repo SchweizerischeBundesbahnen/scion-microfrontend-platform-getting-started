@@ -1,0 +1,32 @@
+{
+  "name": "Customers App",
+  "baseUrl": "#",
+  "capabilities": [
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "customers"
+      },
+      "private": false,
+      "properties": {
+        "path": "/customers"
+      }
+    },
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "customer"
+      },
+      "params": [
+        {
+          "name": "id",
+          "required": true
+        }
+      ],
+      "properties": {
+        "path": "/customers/:id",
+        "outlet": "aside"
+      }
+    }
+  ]
+}
