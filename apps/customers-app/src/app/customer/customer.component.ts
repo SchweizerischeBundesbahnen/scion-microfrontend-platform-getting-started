@@ -25,7 +25,7 @@ export class CustomerComponent {
       )
       .subscribe((customer: Customer) => {
         this.customer = customer;
-        router.navigate('http://localhost:4201/#/products?ids=:ids', {
+        router.navigate({entity: 'products'}, {
           outlet: 'customer-products',
           params: new Map().set('ids', customer.productIds),
         });

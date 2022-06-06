@@ -28,5 +28,13 @@
         "outlet": "aside"
       }
     }
+  ],
+  "intentions": [
+    {
+      "type": "microfrontend",
+      "qualifier": {
+        "entity": "products"
+      }
+    }
   ]
 }
