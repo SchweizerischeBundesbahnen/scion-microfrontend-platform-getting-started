@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    flex: none;
+  }
+
+  > section {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+    gap: .5em 5em;
+
+    > a {
+      color: blue;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<h1>Products</h1>
+
+<section>
+  <ng-container *ngFor="let product of products">
+    <a (click)="onOpenProduct(product.id)">
+      {{product.name}}
+    </a>
+    CHF {{product.price | number:'0.2'}}
+  </ng-container>
+</section>

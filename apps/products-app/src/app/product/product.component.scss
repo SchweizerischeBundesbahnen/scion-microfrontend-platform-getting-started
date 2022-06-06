@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    flex: none;
+  }
+
+  > section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5em 4em;
+  }
+}
