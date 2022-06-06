@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map} from 'rxjs';
 import {Customer, CustomerService} from '../customer.service';
 import {CommonModule} from '@angular/common';
+import {OutletRouter} from '@scion/microfrontend-platform';
 
 @Component({
   selector: 'app-customer',
@@ -10,12 +11,13 @@ import {CommonModule} from '@angular/common';
   styleUrls: ['./customer.component.scss'],
   standalone: true,
   imports: [CommonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CustomerComponent {
 
   public customer: Customer;
 
-  constructor(route: ActivatedRoute, customerService: CustomerService) {
+  constructor(route: ActivatedRoute, customerService: CustomerService, router: OutletRouter) {
     route.paramMap
       .pipe(
         map(params => params.get('id')),
@@ -23,6 +25,10 @@ export class CustomerComponent {
       )
       .subscribe((customer: Customer) => {
         this.customer = customer;
+        router.navigate('http://localhost:4201/#/products?ids=:ids', {
+          outlet: 'customer-products',
+          params: new Map().set('ids', customer.productIds),
+        });
       });
   }
 }
