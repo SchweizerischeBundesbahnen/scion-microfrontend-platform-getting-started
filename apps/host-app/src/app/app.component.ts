@@ -6,4 +6,12 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+  public onOpenProducts(): void {
+    this.router.navigate('http://localhost:4201/#/products');
+  }
+
+  public onOpenCustomers(): void {
+    this.router.navigate('http://localhost:4202/#/customers');
+  }
 }
