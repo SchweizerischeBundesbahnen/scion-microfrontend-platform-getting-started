@@ -1,6 +1,8 @@
 <nav>
-  <button (click)="onOpenProducts()">Products</button>
-  <button (click)="onOpenCustomers()">Customers</button>
+  <button *ngFor="let microfrontendCapability of microfrontendCapabilities$ | async"
+          (click)="onOpenMicrofrontend(microfrontendCapability.qualifier)">
+    {{microfrontendCapability.properties['navbar'].label}}
+  </button>
 </nav>
 <main>
   <sci-router-outlet></sci-router-outlet>

@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {OutletRouter} from '@scion/microfrontend-platform';
+import {ManifestService, MicrofrontendCapability, OutletRouter, Qualifier} from '@scion/microfrontend-platform';
+import {filterArray} from '@scion/toolkit/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,15 @@ import {OutletRouter} from '@scion/microfrontend-platform';
 })
 export class AppComponent {
 
-  constructor(private router: OutletRouter) {
+  public microfrontendCapabilities$: Observable<MicrofrontendCapability[]>;
+
+  constructor(private router: OutletRouter, manifestService: ManifestService) {
     this.router.navigate({component: 'devtools', vendor: 'scion'}, {outlet: 'bottom'});
+    this.microfrontendCapabilities$ = manifestService.lookupCapabilities$<MicrofrontendCapability>({type: 'microfrontend'})
+      .pipe(filterArray(capability => capability.properties['navbar']));
   }
 
-  public onOpenProducts(): void {
-    this.router.navigate('http://localhost:4201/#/products');
-  }
-
-  public onOpenCustomers(): void {
-    this.router.navigate('http://localhost:4202/#/customers');
+  public onOpenMicrofrontend(qualifier: Qualifier): void {
+    this.router.navigate(qualifier);
   }
 }

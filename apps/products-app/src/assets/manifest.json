@@ -15,7 +15,10 @@
       ],
       "private": false,
       "properties": {
-        "path": "/products?ids=:ids"
+        "path": "/products?ids=:ids",
+        "navbar": {
+          "label": "Products"
+        }
       }
     },
     {

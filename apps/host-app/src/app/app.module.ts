@@ -1,7 +1,7 @@
 import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {ManifestService, MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
 import {RouterModule} from '@angular/router';
 
@@ -32,6 +32,7 @@ import {RouterModule} from '@angular/router';
             name: 'Host App',
             intentions: [
               {type: 'microfrontend', qualifier: {component: 'devtools', vendor: 'scion'}},
+              {type: 'microfrontend', qualifier: {'*': '*'}},
             ],
           },
         },
@@ -39,6 +40,7 @@ import {RouterModule} from '@angular/router';
       multi: true,
     },
     {provide: OutletRouter, useFactory: () => Beans.get(OutletRouter)},
+    {provide: ManifestService, useFactory: () => Beans.get(ManifestService)},
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

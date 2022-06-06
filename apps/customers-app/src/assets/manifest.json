@@ -9,7 +9,10 @@
       },
       "private": false,
       "properties": {
-        "path": "/customers"
+        "path": "/customers",
+        "navbar": {
+          "label": "Customers"
+        }
       }
     },
     {
