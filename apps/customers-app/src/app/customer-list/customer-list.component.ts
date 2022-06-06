@@ -19,6 +19,8 @@ export class CustomerListComponent {
   }
 
   public onOpenCustomer(id: string): void {
-    this.router.navigate(`/customers/${id}`, {outlet: 'aside'});
+    this.router.navigate({entity: 'customer'}, {
+      params: new Map().set('id', id),
+    });
   }
 }
