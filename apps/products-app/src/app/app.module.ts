@@ -1,8 +1,10 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {Beans} from '@scion/toolkit/bean-manager';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,14 @@ import {AppComponent} from './app.component';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: () => window !== window.top ? MicrofrontendPlatform.connectToHost('products-app') : null,
+      multi: true,
+    },
+    {provide: OutletRouter, useFactory: () => Beans.opt(OutletRouter)},
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

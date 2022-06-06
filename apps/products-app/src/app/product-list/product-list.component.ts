@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Product, ProductService} from '../product.service';
 import {map} from 'rxjs';
 import {CommonModule} from '@angular/common';
+import {OutletRouter} from '@scion/microfrontend-platform';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +18,7 @@ export class ProductListComponent {
 
   public products: Product[];
 
-  constructor(productService: ProductService, route: ActivatedRoute, private router: Router) {
+  constructor(productService: ProductService, route: ActivatedRoute, private router: OutletRouter) {
     route.queryParamMap
       .pipe(
         map(params => params.get('ids')?.split(',')),
@@ -29,6 +30,6 @@ export class ProductListComponent {
   }
 
   public onOpenProduct(id: string): void {
-    this.router.navigate([`/products/${id}`]);
+    this.router.navigate(`/products/${id}`, {outlet: 'aside'});
   }
 }
