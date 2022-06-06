@@ -5,8 +5,12 @@
     "start": "run-p *:start",
     "host-app:start": "ng serve host-app --port 4200",
     "products-app:start": "ng serve products-app --port 4201",
-    "customers-app:start": "ng serve customers-app --port 4202"
+    "customers-app:start": "ng serve customers-app --port 4202",
 
+    "build-and-start": "run-p *:build-and-start",
+    "host-app:build-and-start": "ng build host-app && cd dist/host-app && http-server --cors --silent --port 4200",
+    "products-app:build-and-start": "ng build products-app && cd dist/products-app && http-server --cors --silent --port 4201",
+    "customers-app:build-and-start": "ng build customers-app && cd dist/customers-app && http-server --cors --silent --port 4202"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +31,7 @@
     "@angular/cli": "~14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
+    "http-server": "^14.1.1",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
