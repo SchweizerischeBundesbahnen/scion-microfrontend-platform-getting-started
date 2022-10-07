@@ -5,6 +5,10 @@
     "host-app:start": "npm start --prefix host-app",
     "products-app:start": "npm start --prefix products-app",
     "customers-app:start": "npm start --prefix customers-app",
+    "build": "run-s *:build",
+    "host-app:build": "npm run build --prefix host-app",
+    "products-app:build": "npm run build --prefix products-app",
+    "customers-app:build": "npm run build --prefix customers-app",
     "postinstall": "npm-recursive-install --skip-root"
   },
   "devDependencies": {
