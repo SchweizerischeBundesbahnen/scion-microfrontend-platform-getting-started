@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "types": [
-      "node"
-    ]
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node"
   }
 }
