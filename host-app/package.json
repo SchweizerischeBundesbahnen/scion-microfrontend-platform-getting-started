@@ -10,20 +10,21 @@
   "dependencies": {
     "@scion/microfrontend-platform": "latest",
     "@scion/toolkit": "latest",
-    "rxjs": "^7.5.0"
+    "rxjs": "^7.5.7"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.3.1",
-    "@types/node": "^15.6.1",
+    "@types/node": "^16.0.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "copy-and-watch": "^0.1.6",
     "npm-run-all": "^4.1.5",
-    "parcel": "^2.3.1",
-    "typescript": "^4.6.0"
+    "parcel": "^2.7.0",
+    "typescript": "^4.8.4"
+  },
+  "alias": {
+    "process": false,
+    "@scion/toolkit/*": "./node_modules/@scion/toolkit/fesm2020/scion-toolkit-$1.mjs"
   },
   "browserslist": [
-    "last 2 Chrome versions"
-  ],
-  "alias": {
-    "process": false
-  }
+    "defaults"
+  ]
 }
