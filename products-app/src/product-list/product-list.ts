@@ -1,12 +1,12 @@
 import {ProductService} from '../product.service';
 import {QueryParams} from '../query-params';
-import {MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {MicrofrontendPlatformClient, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
 
 class ProductListController {
 
   public async init(): Promise<void> {
-    await MicrofrontendPlatform.connectToHost('products-app');
+    await MicrofrontendPlatformClient.connect('products-app');
     QueryParams.observe$.subscribe(queryParams => {
       const productIds = queryParams.get('ids')?.split(',');
       this.render(productIds);
