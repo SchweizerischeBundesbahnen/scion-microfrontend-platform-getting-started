@@ -1,12 +1,12 @@
 import {CustomerService} from '../customer.service';
 import {QueryParams} from '../query-params';
 import {Beans} from '@scion/toolkit/bean-manager';
-import {MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {MicrofrontendPlatformClient, OutletRouter} from '@scion/microfrontend-platform';
 
 class CustomerController {
 
   public async init(): Promise<void> {
-    await MicrofrontendPlatform.connectToHost('customers-app');
+    await MicrofrontendPlatformClient.connect('customers-app');
     QueryParams.observe$.subscribe(queryParams => this.render(queryParams.get('id')));
   }
 

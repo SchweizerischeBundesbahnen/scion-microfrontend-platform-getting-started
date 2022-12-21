@@ -1,11 +1,11 @@
-import {ManifestService, MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {ManifestService, MicrofrontendPlatformHost, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
 import {filterArray} from '@scion/toolkit/operators';
 
 class HostController {
 
   public async init(): Promise<void> {
-    await MicrofrontendPlatform.startHost({
+    await MicrofrontendPlatformHost.start({
       applications: [
         {symbolicName: 'products-app', manifestUrl: `${process.env.PRODUCTS_APP_URL}/manifest.json`},
         {symbolicName: 'customers-app', manifestUrl: `${process.env.CUSTOMERS_APP_URL}/manifest.json`},

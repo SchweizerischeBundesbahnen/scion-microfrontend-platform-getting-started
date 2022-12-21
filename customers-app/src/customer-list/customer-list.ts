@@ -1,11 +1,11 @@
 import {CustomerService} from '../customer.service';
-import {MicrofrontendPlatform, OutletRouter} from '@scion/microfrontend-platform';
+import {MicrofrontendPlatformClient, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
 
 class CustomerListController {
 
   public async init(): Promise<void> {
-    await MicrofrontendPlatform.connectToHost('customers-app');
+    await MicrofrontendPlatformClient.connect('customers-app');
     this.render();
   }
 
