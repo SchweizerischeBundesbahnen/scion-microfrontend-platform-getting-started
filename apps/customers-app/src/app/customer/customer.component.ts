@@ -2,16 +2,14 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map} from 'rxjs';
 import {Customer, CustomerService} from '../customer.service';
-import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.scss'],
   standalone: true,
-  imports: [CommonModule],
 })
-export class CustomerComponent {
+export default class CustomerComponent {
 
   public customer: Customer;
 

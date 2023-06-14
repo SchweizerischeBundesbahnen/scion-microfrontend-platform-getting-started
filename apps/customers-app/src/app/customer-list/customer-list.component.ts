@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {CommonModule} from '@angular/common';
+import {NgFor} from '@angular/common';
 import {Customer, CustomerService} from '../customer.service';
 
 @Component({
@@ -8,9 +8,9 @@ import {Customer, CustomerService} from '../customer.service';
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor],
 })
-export class CustomerListComponent {
+export default class CustomerListComponent {
 
   public customers: Customer[];
 
