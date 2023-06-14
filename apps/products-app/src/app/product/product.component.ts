@@ -2,16 +2,16 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Product, ProductService} from '../product.service';
 import {map} from 'rxjs';
-import {CommonModule} from '@angular/common';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [DecimalPipe],
 })
-export class ProductComponent {
+export default class ProductComponent {
 
   public product: Product;
 
