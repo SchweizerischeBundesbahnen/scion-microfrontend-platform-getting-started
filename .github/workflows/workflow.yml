@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master-angular
+      - 'issue/master-angular/**'
   workflow_dispatch:
 env:
   NODE_VERSION: 16.14.0
@@ -53,6 +54,7 @@ jobs:
           path: dist/${{ matrix.app.name }}
   deploy-apps:
     name: 'Deploying Apps'
+    if: github.ref == 'refs/heads/master-angular'
     needs: [build-apps]
     runs-on: ubuntu-latest
     steps:
