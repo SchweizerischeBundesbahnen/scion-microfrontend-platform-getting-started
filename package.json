@@ -7,10 +7,14 @@
     "products-app:start": "ng serve products-app --port 4201",
     "customers-app:start": "ng serve customers-app --port 4202",
 
+    "host-app:build": "ng build host-app",
+    "products-app:build": "ng build products-app",
+    "customers-app:build": "ng build customers-app",
+
     "build-and-start": "run-p *:build-and-start",
-    "host-app:build-and-start": "ng build host-app && cd dist/host-app && http-server --cors --silent --port 4200",
-    "products-app:build-and-start": "ng build products-app && cd dist/products-app && http-server --cors --silent --port 4201",
-    "customers-app:build-and-start": "ng build customers-app && cd dist/customers-app && http-server --cors --silent --port 4202"
+    "host-app:build-and-start": "npm run host-app:build && cd dist/host-app && http-server --cors --silent --port 4200",
+    "products-app:build-and-start": "npm run products-app:build && cd dist/products-app && http-server --cors --silent --port 4201",
+    "customers-app:build-and-start": "npm run customers-app:build && cd dist/customers-app && http-server --cors --silent --port 4202"
   },
   "private": true,
   "dependencies": {
