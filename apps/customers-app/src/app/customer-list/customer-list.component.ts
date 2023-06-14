@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {NgFor} from '@angular/common';
 import {Customer, CustomerService} from '../customer.service';
 import {OutletRouter} from '@scion/microfrontend-platform';
 
@@ -8,9 +8,9 @@ import {OutletRouter} from '@scion/microfrontend-platform';
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor],
 })
-export class CustomerListComponent {
+export default class CustomerListComponent {
 
   public customers: Customer[];
 

@@ -2,7 +2,6 @@ import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map} from 'rxjs';
 import {Customer, CustomerService} from '../customer.service';
-import {CommonModule} from '@angular/common';
 import {OutletRouter} from '@scion/microfrontend-platform';
 
 @Component({
@@ -10,10 +9,9 @@ import {OutletRouter} from '@scion/microfrontend-platform';
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.scss'],
   standalone: true,
-  imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CustomerComponent {
+export default class CustomerComponent {
 
   public customer: Customer;
 
