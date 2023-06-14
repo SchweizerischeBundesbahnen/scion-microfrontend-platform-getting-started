@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Product, ProductService} from '../product.service';
 import {map} from 'rxjs';
-import {CommonModule} from '@angular/common';
 import {OutletRouter} from '@scion/microfrontend-platform';
+import {DecimalPipe, NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
@@ -11,10 +11,11 @@ import {OutletRouter} from '@scion/microfrontend-platform';
   styleUrls: ['./product-list.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
+    NgFor,
+    DecimalPipe,
   ],
 })
-export class ProductListComponent {
+export default class ProductListComponent {
 
   public products: Product[];
 
