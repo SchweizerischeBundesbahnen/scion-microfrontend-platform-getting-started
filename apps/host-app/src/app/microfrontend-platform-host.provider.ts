@@ -1,21 +1,14 @@
-import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, inject, NgModule, NgZone} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {AppComponent} from './app.component';
+import {APP_INITIALIZER, EnvironmentProviders, inject, makeEnvironmentProviders, NgZone} from '@angular/core';
 import {ManifestService, MicrofrontendPlatformHost, ObservableDecorator, OutletRouter} from '@scion/microfrontend-platform';
 import {Beans} from '@scion/toolkit/bean-manager';
-import {RouterModule} from '@angular/router';
 import {environment} from '../environments/environment';
 import {NgZoneObservableDecorator} from './ng-zone-observable-decorator';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([]),
-  ],
-  providers: [
+/**
+ * Registers a set of DI providers to set up SCION Microfrontend Platform Host.
+ */
+export function provideMicrofrontendPlatformHost(): EnvironmentProviders {
+  return makeEnvironmentProviders([
     {
       provide: APP_INITIALIZER,
       useFactory: providePlatformStartupFn,
@@ -23,11 +16,7 @@ import {NgZoneObservableDecorator} from './ng-zone-observable-decorator';
     },
     {provide: OutletRouter, useFactory: () => Beans.get(OutletRouter)},
     {provide: ManifestService, useFactory: () => Beans.get(ManifestService)},
-  ],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-export class AppModule {
+  ])
 }
 
 function providePlatformStartupFn(): () => Promise<void> {
