@@ -23,7 +23,9 @@
             "outputPath": "dist/host-app",
             "index": "apps/host-app/src/index.html",
             "main": "apps/host-app/src/main.ts",
-            "polyfills": "apps/host-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "apps/host-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -47,12 +49,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/host-app/src/environments/environment.ts",
-                  "with": "apps/host-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -89,10 +85,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/host-app/src/test.ts",
-            "polyfills": "apps/host-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "apps/host-app/tsconfig.spec.json",
-            "karmaConfig": "apps/host-app/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/host-app/src/favicon.ico",
@@ -126,7 +123,9 @@
             "outputPath": "dist/products-app",
             "index": "apps/products-app/src/index.html",
             "main": "apps/products-app/src/main.ts",
-            "polyfills": "apps/products-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "apps/products-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -150,12 +149,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/products-app/src/environments/environment.ts",
-                  "with": "apps/products-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -192,10 +185,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/products-app/src/test.ts",
-            "polyfills": "apps/products-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "apps/products-app/tsconfig.spec.json",
-            "karmaConfig": "apps/products-app/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/products-app/src/favicon.ico",
@@ -229,7 +223,9 @@
             "outputPath": "dist/customers-app",
             "index": "apps/customers-app/src/index.html",
             "main": "apps/customers-app/src/main.ts",
-            "polyfills": "apps/customers-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "apps/customers-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -253,12 +249,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/customers-app/src/environments/environment.ts",
-                  "with": "apps/customers-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -295,10 +285,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/customers-app/src/test.ts",
-            "polyfills": "apps/customers-app/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "apps/customers-app/tsconfig.spec.json",
-            "karmaConfig": "apps/customers-app/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/customers-app/src/favicon.ico",
