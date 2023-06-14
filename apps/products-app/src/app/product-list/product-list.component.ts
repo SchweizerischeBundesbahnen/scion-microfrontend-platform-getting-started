@@ -2,18 +2,16 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product, ProductService} from '../product.service';
 import {map} from 'rxjs';
-import {CommonModule} from '@angular/common';
+import {DecimalPipe, NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [NgFor, DecimalPipe],
 })
-export class ProductListComponent {
+export default class ProductListComponent {
 
   public products: Product[];
 
