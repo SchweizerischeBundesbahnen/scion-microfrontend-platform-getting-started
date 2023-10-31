@@ -22,7 +22,7 @@
   },
   "alias": {
     "process": false,
-    "@scion/toolkit/*": "./node_modules/@scion/toolkit/fesm2020/scion-toolkit-$1.mjs"
+    "@scion/toolkit/*": "./node_modules/@scion/toolkit/fesm2022/scion-toolkit-$1.mjs"
   },
   "browserslist": [
     "defaults"
