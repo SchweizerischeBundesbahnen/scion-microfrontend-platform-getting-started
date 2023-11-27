@@ -6,18 +6,18 @@ on:
       - 'issue/master-angular/**'
   workflow_dispatch:
 env:
-  NODE_VERSION: 18.16.0
+  NODE_VERSION: 20.9.0
 jobs:
   install:
     name: 'Installing NPM modules'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Caching NPM modules if necessary'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node-modules-cache
         with:
           path: ./node_modules
@@ -38,12 +38,12 @@ jobs:
           - name: customers-app
             cmd: npm run customers-app:build:vercel
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Restoring NPM modules from cache'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ./node_modules
           key: node_modules-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -59,24 +59,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Downloading host-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: host-app
           path: dist/host-app
       - name: 'Downloading products-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: products-app
           path: dist/products-app
       - name: 'Downloading customers-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: customers-app
           path: dist/customers-app
       - name: 'Deploying host-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
-          dist-folder: dist/host-app
+          dist-folder: dist/host-app/browser
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
@@ -84,7 +84,7 @@ jobs:
       - name: 'Deploying products-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
-          dist-folder: dist/products-app
+          dist-folder: dist/products-app/browser
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
@@ -92,7 +92,7 @@ jobs:
       - name: 'Deploying customers-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
-          dist-folder: dist/customers-app
+          dist-folder: dist/customers-app/browser
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
