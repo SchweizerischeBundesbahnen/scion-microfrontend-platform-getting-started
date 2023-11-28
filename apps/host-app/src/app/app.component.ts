@@ -15,4 +15,5 @@ import {NgSwitch, NgSwitchCase, NgSwitchDefault} from '@angular/common';
   ],
 })
 export class AppComponent {
+  title = 'host-app';
 }

@@ -6,18 +6,18 @@ on:
       - 'issue/skeleton-angular/**'
   workflow_dispatch:
 env:
-  NODE_VERSION: 18.16.0
+  NODE_VERSION: 20.9.0
 jobs:
   install:
     name: 'Installing NPM modules'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Caching NPM modules if necessary'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node-modules-cache
         with:
           path: ./node_modules
@@ -38,17 +38,17 @@ jobs:
           - name: customers-app
             cmd: npm run customers-app:build
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Restoring NPM modules from cache'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ./node_modules
           key: node_modules-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - run: ${{ matrix.app.cmd }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.app.name }}
           path: dist/${{ matrix.app.name }}
