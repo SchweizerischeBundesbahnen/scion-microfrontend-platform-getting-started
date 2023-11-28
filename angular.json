@@ -18,11 +18,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/host-app",
             "index": "apps/host-app/src/index.html",
-            "main": "apps/host-app/src/main.ts",
+            "browser": "apps/host-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -54,12 +54,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -68,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "host-app:build:production"
+              "buildTarget": "host-app:build:production"
             },
             "development": {
-              "browserTarget": "host-app:build:development"
+              "buildTarget": "host-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "host-app:build"
+            "buildTarget": "host-app:build"
           }
         },
         "test": {
@@ -118,11 +115,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/products-app",
             "index": "apps/products-app/src/index.html",
-            "main": "apps/products-app/src/main.ts",
+            "browser": "apps/products-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -154,12 +151,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -168,10 +162,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "products-app:build:production"
+              "buildTarget": "products-app:build:production"
             },
             "development": {
-              "browserTarget": "products-app:build:development"
+              "buildTarget": "products-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -179,7 +173,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "products-app:build"
+            "buildTarget": "products-app:build"
           }
         },
         "test": {
@@ -218,11 +212,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/customers-app",
             "index": "apps/customers-app/src/index.html",
-            "main": "apps/customers-app/src/main.ts",
+            "browser": "apps/customers-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -254,12 +248,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -268,10 +259,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "customers-app:build:production"
+              "buildTarget": "customers-app:build:production"
             },
             "development": {
-              "browserTarget": "customers-app:build:development"
+              "buildTarget": "customers-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -279,7 +270,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "customers-app:build"
+            "buildTarget": "customers-app:build"
           }
         },
         "test": {
