@@ -34,17 +34,17 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install --ignore-scripts
       - name: 'Downloading host-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: host-app
           path: dist/host-app
       - name: 'Downloading products-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: products-app
           path: dist/products-app
       - name: 'Downloading customers-app'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: customers-app
           path: dist/customers-app
