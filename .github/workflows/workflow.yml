@@ -6,7 +6,7 @@ on:
       - 'issue/master-angular/**'
   workflow_dispatch:
 env:
-  NODE_VERSION: 20.9.0
+  NODE_VERSION: 20.14.0
 jobs:
   install:
     name: 'Installing NPM modules'
@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Caching NPM modules if necessary'
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: node-modules-cache
         with:
           path: ./node_modules
@@ -43,12 +43,12 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Restoring NPM modules from cache'
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./node_modules
           key: node_modules-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - run: ${{ matrix.app.cmd }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.app.name }}
           path: dist/${{ matrix.app.name }}
@@ -59,17 +59,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Downloading host-app'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: host-app
           path: dist/host-app
       - name: 'Downloading products-app'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: products-app
           path: dist/products-app
       - name: 'Downloading customers-app'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: customers-app
           path: dist/customers-app
