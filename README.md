@@ -48,11 +48,11 @@ npm run start
 Pushing to the master branch triggers our GitHub workflow and deploys the sample application to [Vercel](https://vercel.com/scion/scion-microfrontend-platform-getting-started-app).
 
  - **Host Application (main entry point of the sample application)**\
-   https://scion-microfrontend-platform-getting-started.vercel.app
+   https://microfrontend-platform-getting-started.scion.vercel.app
  - **Products Application**\
-   https://scion-microfrontend-platform-getting-started-products-app.vercel.app
+   https://microfrontend-platform-getting-started-products-app.scion.vercel.app
  - **Customers Application**\
-   https://scion-microfrontend-platform-getting-started-customers-app.vercel.app
+   https://microfrontend-platform-getting-started-customers-app.scion.vercel.app
 
 ***
 
@@ -60,6 +60,6 @@ Pushing to the master branch triggers our GitHub workflow and deploys the sample
 
 [link-microfrontend-platform]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform
 [link-microfrontend-platform:getting-started-guide]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform/blob/master/docs/site/getting-started/getting-started.md
-[link-microfrontend-platform:getting-started-app]: https://scion-microfrontend-platform-getting-started.vercel.app
+[link-microfrontend-platform:getting-started-app]: https://microfrontend-platform-getting-started.scion.vercel.app
 [link-github-actions-workflow]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform-getting-started/actions
 [link-github-actions-workflow:status]: https://github.com/SchweizerischeBundesbahnen/scion-microfrontend-platform-getting-started/workflows/Continuous%20Delivery/badge.svg?branch=master&event=push
