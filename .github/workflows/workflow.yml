@@ -55,7 +55,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started.vercel.app
+          aliases: microfrontend-platform-getting-started.scion.vercel.app
       - name: 'Deploying products-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
@@ -63,7 +63,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started-products-app.vercel.app
+          aliases: microfrontend-platform-getting-started-products-app.scion.vercel.app
       - name: 'Deploying customers-app to Vercel'
         uses: SchweizerischeBundesbahnen/scion-toolkit/.github/actions/vercel-deploy@master
         with:
@@ -71,4 +71,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           org-id: ${{ secrets.VERCEL_ORG_ID }}
           project-id: ${{ secrets.VERCEL_MICROFRONTEND_PLATFORM_GETTING_STARTED_APP_PROJECT_ID }}
-          aliases: scion-microfrontend-platform-getting-started-customers-app.vercel.app
+          aliases: microfrontend-platform-getting-started-customers-app.scion.vercel.app
